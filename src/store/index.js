@@ -22,24 +22,24 @@ export const store = new Vuex.Store({
     },
   },
   actions: {
-    FETCH_NEWS_LIST(context) {
+    FETCH_NEWS_LIST({ commit }) {
       fetchNewsList()
-        .then((response) => {
-          context.commit("SET_NEWS_LIST", response.data);
+        .then(({ data: newsList }) => {
+          commit("SET_NEWS_LIST", newsList);
         })
         .catch((error) => console.log(error));
     },
-    FETCH_ASK_LIST(context) {
+    FETCH_ASK_LIST({ commit }) {
       fetchAskList()
-        .then((response) => {
-          context.commit("SET_ASK_LIST", response.data);
+        .then(({ data: askList }) => {
+          commit("SET_ASK_LIST", askList);
         })
         .catch((error) => console.log(error));
     },
-    FETCH_JOB_LIST(context) {
+    FETCH_JOB_LIST({ commit }) {
       fetchJobList()
-        .then((response) => {
-          context.commit("SET_JOB_LIST", response.data);
+        .then(({ data: jobList }) => {
+          commit("SET_JOB_LIST", jobList);
         })
         .catch((error) => console.log(error));
     },
