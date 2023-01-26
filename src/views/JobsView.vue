@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div v-for="job in this.getJobList" :key="job.id">{{ job.title }}</div>
+    <p v-for="job in this.getJobList" :key="job.id">
+      <a :href="job.url">
+        {{ job.title }}
+      </a>
+      <small>{{ job.time_ago }}{{ job.domain ? `, ${job.domain}` : "" }}</small>
+    </p>
   </div>
 </template>
 
@@ -9,10 +14,7 @@ import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["getJobList"])
-    // ...mapState({
-    //   jobList: (state) => state.jobList,
-    // }),
+    ...mapGetters(["getJobList"]),
   },
   created() {
     this.$store.dispatch("FETCH_JOB_LIST");
