@@ -4,7 +4,10 @@
       <a :href="ask.url">
         {{ ask.title }}
       </a>
-      <small>{{ ask.time_ago }}, {{ ask.user }}</small>
+      <small>
+        {{ ask.time_ago }} by 
+        <router-link :to="`/user/${ask.user}`">{{ ask.user }}</router-link>
+        </small>
     </p>
   </div>
 </template>

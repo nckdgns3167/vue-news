@@ -8,4 +8,7 @@ export default {
   SET_JOB_LIST(state, jobList) {
     state.jobList = jobList;
   },
+  SET_USER_INFO(state, userInfo) {
+    state.userInfo = userInfo;
+  },
 };
