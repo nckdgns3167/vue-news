@@ -1,17 +1,18 @@
 <template>
   <div>
-    <div v-for="news in this.newsList" :key="news.id">{{ news.title }}</div>
+    <div v-for="news in this.getNewsList" :key="news.id">{{ news.title }}</div>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapState({
-      newsList: (state) => state.newsList,
-    }),
+    ...mapGetters(["getNewsList"])
+    // ...mapState({
+    //   newsList: (state) => state.newsList,
+    // }),
   },
   created() {
     this.$store.dispatch("FETCH_NEWS_LIST");
