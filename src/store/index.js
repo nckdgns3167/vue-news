@@ -22,9 +22,9 @@ export const store = new Vuex.Store({
     },
   },
   actions: {
-    FETCH_NEWS_LIST({ commit }) {
+    FETCH_NEWS_LIST({ commit }) { // context.commit
       fetchNewsList()
-        .then(({ data: newsList }) => {
+        .then(({ data: newsList }) => { // response.data => newsList
           commit("SET_NEWS_LIST", newsList);
         })
         .catch((error) => console.log(error));
